@@ -42,12 +42,12 @@ export default function HeroSection() {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between p-6 md:p-12 md:pl-20 overflow-hidden py-20 md:py-12">
+    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between p-6 md:p-12 overflow-hidden py-20 md:py-12">
       
       {/* Main Massive Typography Area */}
-      <main className="flex-1 flex flex-col justify-center w-full z-10 relative pt-12 md:pt-32">
+      <main className="flex-1 flex flex-col justify-center items-center w-full z-10 relative pt-12 md:pt-32 text-center">
         <AnimatePresence mode="wait">
-          <motion.div key={currentSlide} className="w-full flex flex-col justify-center">
+          <motion.div key={currentSlide} className="w-full flex flex-col justify-center items-center">
             
             {slides[currentSlide].accent && (
               <motion.div 
@@ -55,14 +55,14 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="font-space font-bold text-[#0A0A0A] text-lg md:text-3xl mb-4"
+                className="font-space font-bold text-[#0A0A0A] text-lg md:text-3xl mb-4 text-center"
               >
                 {slides[currentSlide].accent}
               </motion.div>
             )}
             
             {/* Clamped font sizes to guarantee it never overlaps UI limits */}
-            <h1 className="font-space font-black text-[clamp(56px,12vw,140px)] leading-[0.85] tracking-[-0.04em] uppercase">
+            <h1 className="font-space font-black text-[clamp(56px,12vw,140px)] leading-[0.85] tracking-[-0.04em] uppercase text-center mx-auto">
               {slides[currentSlide].lines.map((line, index) => (
                 <span key={index} className="block pb-2 md:pb-4">
                   <motion.span 
@@ -86,16 +86,16 @@ export default function HeroSection() {
       </main>
 
       {/* Bottom Information Layer */}
-      <footer className="w-full relative z-10 flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/20 pb-6 mt-8 gap-6 md:gap-0">
+      <footer className="w-full relative z-10 flex flex-col md:flex-row justify-center items-center border-b border-white/20 pb-6 mt-8 gap-6">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-space font-bold text-sm tracking-wide uppercase text-white/90"
+          className="hidden md:block font-space font-bold text-sm tracking-wide uppercase text-white/90"
         >
         </motion.div>
         
-        {/* Pagination Dots */}
+        {/* Pagination Dots - Centered */}
         <div className="flex items-center gap-3">
           {slides.map((_, index) => (
             <button 
