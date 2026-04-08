@@ -9,9 +9,9 @@ export default function AboutPage() {
   return (
     <main className="bg-[#0A0A0A] min-h-screen pt-32 pb-0 selection:bg-[#4169E1] selection:text-white">
       
-      {/* Intro Section */}
-      <section id="all-projects" className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24 border-b border-white/10 flex flex-col items-center text-center">
-        <h1 className="font-space font-black text-6xl md:text-[84px] leading-[0.95] tracking-tighter uppercase text-white mb-20">
+      {/* Intro Section - Editorial Left Alignment */}
+      <section id="all-projects" className="py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24 border-b border-white/10 flex flex-col items-start text-left">
+        <h1 className="font-space font-black text-6xl md:text-[84px] lg:text-[110px] leading-[0.95] tracking-tighter uppercase text-white mb-12 md:mb-16 max-w-[1000px]">
           WE ARE <span className="text-[#4169E1]">ARCHITECTS</span> OF VISUAL REVENUE.
         </h1>
 
