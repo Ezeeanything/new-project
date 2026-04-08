@@ -23,7 +23,6 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="flex items-center justify-center gap-2 mb-8"
         >
-          <span className="text-[#DAA520] font-bold">(4)</span>
           <span className="uppercase text-[#DAA520] text-xs tracking-widest font-semibold">What We Do</span>
         </motion.div>
 

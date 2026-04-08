@@ -55,7 +55,6 @@ export default function RevenueSection() {
       <div className="max-w-[1400px] mx-auto">
         
         <div className="flex items-center gap-2 mb-12">
-          <span className="text-[#4169E1] font-bold">(3)</span>
           <span className="uppercase text-xs tracking-widest font-semibold text-gray-500">What Revenue Means To Us</span>
         </div>
 
@@ -72,22 +71,22 @@ export default function RevenueSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           {/* Left Column Image */}
-          <div className="relative h-[600px] w-full rounded-tr-[120px] overflow-hidden group shadow-2xl">
+          <div className="relative h-[500px] md:h-[600px] w-full rounded-tr-[120px] overflow-hidden group shadow-2xl">
             <Image 
               src="/team_collaborating.png"
               alt="Design Team Collaborating"
               fill
               className="object-cover object-center group-hover:scale-105 transition-transform duration-1000"
             />
-            {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent" />
+            {/* Dark Protective Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-80 md:opacity-100" />
             
             <motion.h3 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute bottom-12 left-8 md:left-12 font-space font-bold text-4xl md:text-5xl text-white leading-[1.2] shadow-sm drop-shadow-lg"
+              className="absolute bottom-8 md:bottom-12 left-6 md:left-12 font-space font-bold text-3xl md:text-5xl text-white leading-[1.2] drop-shadow-2xl z-10 pr-6"
             >
               and we really do<br />convert visuals<br />into revenue
             </motion.h3>

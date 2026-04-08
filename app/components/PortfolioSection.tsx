@@ -3,108 +3,83 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function PortfolioSection() {
   const projects = [
     {
-      name: "Wheels and Keys",
-      category: "Complete Brand Identity",
-      client: "Wheels and Keys",
-      result: "90% increase in online presence",
-      image: "/portfolio_placeholder.png"
+      name: "WK Homes",
+      category: "Interior Branding",
+      image: "/projects/wkhomes.png"
     },
     {
-      name: "Ventics",
-      category: "Brand Identity Design",
-      client: "Ventics Inc.",
-      result: "Venture funding secured",
-      image: "/portfolio_placeholder.png"
+      name: "Ventics AI",
+      category: "Identity Ecosystem",
+      image: "/projects/ventics_home.jpg"
     },
     {
-      name: "Primedoor",
-      category: "Logo Design",
-      client: "Primedoor Real Estate",
-      result: "Professional market positioning",
-      image: "/portfolio_placeholder.png"
+      name: "WK Homes Tower",
+      category: "Physical Signage",
+      image: "/projects/wkhomes_corner.jpg"
     }
   ];
 
   return (
-    <section className="bg-[#FAFAFA] text-[#0A0A0A] py-32 px-4 md:px-8 w-full relative z-10">
+    <section className="bg-[#0A0A0A] text-[#FAFAFA] py-32 px-4 md:px-8 w-full relative z-10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        
-        <div className="flex items-center gap-2 mb-8">
-          <span className="text-[#4169E1] font-bold">(5)</span>
-          <span className="uppercase text-xs tracking-widest font-semibold text-gray-500">Our Work</span>
-        </div>
-
-        <motion.h2 
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-space font-black text-6xl md:text-[84px] leading-[1.1] mb-20"
+          className="flex justify-between items-end mb-12 md:mb-20"
         >
-          Our Work
-        </motion.h2>
+          <h2 className="font-space font-black text-4xl md:text-[84px] leading-[0.9] tracking-tighter uppercase text-white">
+            OUR WORK.
+          </h2>
+          <Link href="/portfolio" className="hidden md:flex bg-[#4169E1] text-white px-8 py-4 font-space font-bold uppercase tracking-wider items-center gap-3 hover:bg-white hover:text-[#0A0A0A] transition-colors cursor-pointer">
+            View All <ArrowRight className="w-5 h-5" />
+          </Link>
+        </motion.div>
 
-        <div className="flex flex-col gap-12 lg:gap-20">
+        {/* Horizontal scroll container (Dynasty Style) */}
+        <div className="flex overflow-x-auto pb-12 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-8 w-full" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {projects.map((project, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-2xl md:rounded-3xl overflow-hidden group cursor-pointer shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-shadow"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="min-w-[85vw] md:min-w-[600px] lg:min-w-[700px] flex-shrink-0 snap-center group cursor-pointer"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 h-full">
-                {/* Image Side */}
-                <div className="lg:col-span-8 relative aspect-video overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-100">
-                  <Image 
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
-                  />
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <span className="text-white font-space font-bold uppercase tracking-widest text-lg border-b border-white pb-1 flex items-center gap-2">
-                      View Case Study <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="lg:col-span-4 p-8 md:p-12 flex flex-col justify-center">
-                  <span className="text-[#4169E1] font-semibold text-sm uppercase tracking-wider mb-2">
-                    {project.category}
-                  </span>
-                  <h3 className="font-space font-black text-4xl md:text-5xl mb-6">
+              {/* Force fully sharp corners, no clip-paths, no rounding */}
+              <div className="w-full aspect-[4/3] bg-zinc-900 relative overflow-hidden mb-6 rounded-none">
+                <Image 
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover object-center grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                />
+              </div>
+              
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-space font-black text-3xl md:text-5xl uppercase tracking-tighter mb-2 group-hover:text-[#4169E1] transition-colors">
                     {project.name}
                   </h3>
-                  <div className="mt-auto">
-                    <div className="text-sm text-gray-500 mb-1 lg:mb-2 uppercase tracking-wide">Result</div>
-                    <p className="font-space font-semibold text-lg md:text-xl text-[#0A0A0A] border-l-2 border-[#4169E1] pl-4">
-                      "{project.result}"
-                    </p>
-                  </div>
+                  <span className="text-gray-400 font-medium text-sm md:text-base uppercase tracking-widest">
+                    {project.category}
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-24 text-center"
-        >
-          <button className="bg-[#0A0A0A] text-white px-12 py-5 rounded-full font-space font-bold uppercase tracking-wider flex items-center gap-3 mx-auto shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all cursor-pointer">
-            View all works <ArrowRight className="w-5 h-5" />
-          </button>
-        </motion.div>
+        <Link href="/portfolio" className="md:hidden w-full bg-[#4169E1] text-white px-8 py-4 font-space font-bold uppercase tracking-wider flex justify-center items-center gap-3 mt-8">
+            View All <ArrowRight className="w-5 h-5" />
+        </Link>
 
       </div>
     </section>

@@ -20,8 +20,8 @@ export default function Home() {
       
       <div className={`transition-opacity duration-1000 ${isLoading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'}`}>
         <HeroSection />
-        <WelcomeSection />
         <ClientMarquee />
+        <WelcomeSection />
         <RevenueSection />
         <ServicesSection />
         <PortfolioSection />

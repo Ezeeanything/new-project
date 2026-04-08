@@ -1,131 +1,128 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Plus, Asterisk } from "lucide-react";
-import Image from "next/image";
-import { useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function WelcomeSection() {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
+  const [loopCount, setLoopCount] = useState(0);
 
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const pills = [
+    { 
+      text: "Design is", 
+      bg: "bg-[#3374F5]", 
+      textCol: "text-white", 
+      rotate: "-rotate-[12deg] md:-rotate-[20deg]",
+      pos: "top-[5%] md:top-[5%] left-[5%] md:left-[10%] z-10"
+    },
+    { 
+      text: "not decoration", 
+      bg: "bg-[#0A0A0A]", 
+      textCol: "text-white", 
+      rotate: "rotate-[4deg] md:rotate-[6deg]",
+      pos: "top-[28%] md:top-[30%] right-[5%] md:right-[5%] z-20"
+    },
+    { 
+      text: "it's direction", 
+      bg: "bg-[#D6FF79]", 
+      textCol: "text-[#0A0A0A]", 
+      rotate: "-rotate-[2deg] md:-rotate-[2deg]",
+      pos: "top-[55%] md:top-[55%] left-[0%] md:left-[5%] z-30"
+    },
+    { 
+      text: "With purpose", 
+      bg: "bg-[#FF7324]", 
+      textCol: "text-[#0A0A0A]", 
+      rotate: "-rotate-[8deg] md:-rotate-[12deg]",
+      pos: "top-[82%] md:top-[80%] right-[0%] md:right-[15%] z-40"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setLoopCount((prev) => prev + 1);
+    }, 6000); // 6 seconds loop: enough time to drop, hold, and fall
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-32 px-4 md:px-8 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+    <section className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-24 md:py-40 px-0 md:px-8 relative overflow-hidden flex flex-col items-center">
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center px-4 md:px-0">
+        
+        {/* Massive Headline */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center w-full mb-12 md:mb-16 lg:mb-20"
         >
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <span className="text-[#4169E1] font-bold">(2)</span>
-            <span className="text-gray-500 uppercase text-xs tracking-widest font-semibold">Discover more about us</span>
-          </div>
-          
-          <h2 className="font-space font-black text-6xl md:text-[96px] leading-[1.1] tracking-[-0.02em] mb-8">
-            Welcome to<br />our World!
+          <h2 className="font-space font-black text-[12vw] md:text-[80px] lg:text-[110px] xl:text-[130px] leading-[0.8] tracking-[-0.04em] uppercase text-[#4169E1]">
+            WHAT DESIGN<br />MEANS TO US
           </h2>
-          
-          <p className="font-space italic text-2xl md:text-[32px] text-gray-700 max-w-[700px] mx-auto font-light">
-            We help our clients to realize the full potential of their brand.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
-          {/* Left Column - Image */}
-          <div className="lg:col-span-7 relative h-[600px] overflow-hidden group">
-            <motion.div style={{ y: imgY, height: "120%" }} className="w-full relative -top-[10%]">
-              <Image 
-                src="/studio_interior.png"
-                alt="Studio Interior"
-                fill
-                className="object-cover object-center w-full h-full grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-              />
-            </motion.div>
-            
-            {/* Quote Box Overlay */}
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute -bottom-8 -left-4 md:-left-8 md:-bottom-12 bg-white p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-[600px] z-10"
-            >
-              <div className="absolute top-4 right-4 opacity-10">
-                <Asterisk className="w-24 h-24 text-[#4169E1]" />
-              </div>
-              <p className="font-space font-medium text-xl md:text-2xl leading-[1.6] relative z-10">
-                &quot;We believe that the visuals should be both timeless and meaningful, where each visuals convert into sales&quot;
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Right Column - Text Content */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-12">
+        {/* Transparent Constraint Container */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full aspect-[4/5] md:aspect-[21/9] relative bg-transparent flex items-center justify-center p-4 md:p-8 overflow-hidden"
+        >
+          <AnimatePresence mode="wait">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              key={loopCount}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.3 }
+                },
+                exit: {
+                  transition: { staggerChildren: 0.1, staggerDirection: -1 }
+                }
+              }}
+              className="relative w-full max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] h-full"
             >
-              <p className="text-gray-600 text-base leading-[1.8] mb-6">
-                As multidisciplinary architects and designers, we consider the synthesis of aesthetics and function to be at the heart of our work.
-              </p>
-              <p className="text-gray-600 text-base leading-[1.8] mb-6">
-                We collaborate closely with other experts in our field, including brand and graphic designers, photographers, artists, product designers and our professional partners.
-              </p>
-              <p className="text-gray-600 text-base leading-[1.8]">
-                EzeeAD is a design studio specializing in innovative solutions for Nigerian businesses in the tech, finance, and e-commerce sectors.
-              </p>
+              {pills.map((pill, i) => (
+                <motion.div
+                  key={i}
+                  variants={{
+                    hidden: { y: -600, opacity: 0, scale: 0.9 },
+                    visible: { 
+                      y: 0, 
+                      opacity: 1, 
+                      scale: 1,
+                      transition: { 
+                        type: "spring", 
+                        bounce: 0.35, 
+                        duration: 1.2 
+                      } 
+                    },
+                    exit: { 
+                      y: 600, 
+                      opacity: 0, 
+                      transition: { 
+                        ease: "easeIn", 
+                        duration: 0.6 
+                      } 
+                    }
+                  }}
+                  className={`absolute ${pill.pos} ${pill.rotate} ${pill.bg} ${pill.textCol} px-6 py-3 md:px-16 md:py-8 lg:px-20 lg:py-10 rounded-full flex items-center justify-center transition-transform will-change-transform`}
+                >
+                  <span className="font-inter font-bold text-2xl md:text-5xl lg:text-7xl xl:text-[80px] tracking-tight whitespace-nowrap leading-none pb-1 md:pb-2 lg:pb-3">
+                    {pill.text}
+                  </span>
+                </motion.div>
+              ))}
             </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative pl-6 border-l-2 border-[#4169E1]"
-            >
-              <Asterisk className="absolute -left-[11px] top-1 w-5 h-5 text-[#4169E1] bg-[#FAFAFA]" />
-              <p className="text-[#0A0A0A] font-medium text-base leading-[1.8] mb-4">
-                EzeeAD was founded in Lagos by creative professionals.
-              </p>
-              <p className="text-gray-600 text-base leading-[1.8] mb-4">
-                Our studio&apos;s unique blend of contemporary brand strategy and classic design principles is balanced with exceptional attention to detail and an appreciation for the context of the project.
-              </p>
-              <p className="text-gray-600 text-base leading-[1.8]">
-                Every project is unique and requires a different strategy, which leads to the creation of highly functional brands that are in line with the specific needs of our clients.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex items-center gap-2 mt-8"
-            >
-              <span className="text-[#4169E1] font-bold text-sm">(2/4)</span>
-              <span className="text-sm font-semibold text-gray-800">That&apos;s why we offer a full range of Services.</span>
-              <a href="#services" className="text-sm font-bold border-b-2 border-[#0A0A0A] pb-0.5 hover:text-[#4169E1] hover:border-[#4169E1] transition-colors ml-1 flex items-center gap-1 group">
-                Discover <Plus className="w-4 h-4 group-hover:rotate-90 transition-transform" />
-              </a>
-            </motion.div>
-          </div>
-        </div>
+        
       </div>
-      
-      {/* Decorative Accents */}
-      <Plus className="absolute top-20 right-[15%] w-6 h-6 text-[#4169E1]/30" />
-      <Plus className="absolute bottom-40 right-10 w-8 h-8 text-[#4169E1]/30" />
-      <Asterisk className="absolute top-1/2 left-8 w-6 h-6 text-[#4169E1]/20" />
     </section>
   );
 }

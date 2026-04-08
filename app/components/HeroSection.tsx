@@ -1,89 +1,120 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Plus, Asterisk } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      accent: "",
+      lines: [
+        { text: "WHERE", color: "text-[#FAFAFA]" },
+        { text: "VISUALS", color: "text-[#FAFAFA]" },
+        { text: "MEET REVENUE.", color: "text-[#0A0A0A]" },
+      ]
+    },
+    {
+      accent: "",
+      lines: [
+        { text: "YOUR", color: "text-[#FAFAFA]" },
+        { text: "BRAND", color: "text-[#FAFAFA]" },
+        { text: "TRANSFORMED.", color: "text-[#0A0A0A]" },
+      ]
+    },
+    {
+      accent: "",
+      lines: [
+        { text: "DO", color: "text-[#FAFAFA]" },
+        { text: "BIGGER", color: "text-[#FAFAFA]" },
+        { text: "THINGS.", color: "text-[#0A0A0A]" },
+      ]
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   return (
-    <section className="relative h-screen w-full bg-[#0A0A0A] text-white overflow-hidden flex flex-col">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#0A0A0A]/50 to-[#0A0A0A] pointer-events-none" />
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between p-6 md:p-12 md:pl-20 overflow-hidden py-20 md:py-12">
+      
+      {/* Main Massive Typography Area */}
+      <main className="flex-1 flex flex-col justify-center w-full z-10 relative pt-12 md:pt-32">
+        <AnimatePresence mode="wait">
+          <motion.div key={currentSlide} className="w-full flex flex-col justify-center">
+            
+            {slides[currentSlide].accent && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="font-space font-bold text-[#0A0A0A] text-lg md:text-3xl mb-4"
+              >
+                {slides[currentSlide].accent}
+              </motion.div>
+            )}
+            
+            {/* Clamped font sizes to guarantee it never overlaps UI limits */}
+            <h1 className="font-space font-black text-[clamp(56px,12vw,140px)] leading-[0.85] tracking-[-0.04em] uppercase">
+              {slides[currentSlide].lines.map((line, index) => (
+                <span key={index} className="block pb-2 md:pb-4">
+                  <motion.span 
+                    className={`block ${line.color}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ 
+                      duration: 1.5, 
+                      delay: index * 0.15, 
+                      ease: "easeOut"
+                    }}
+                  >
+                    {line.text}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
+          </motion.div>
+        </AnimatePresence>
+      </main>
 
-      {/* Top Corners */}
-      <div className="absolute top-8 left-8">
-        <motion.div whileHover={{ rotate: 90 }} transition={{ duration: 0.3 }}>
-          <Asterisk className="w-6 h-6 text-[#4169E1]" />
-        </motion.div>
-      </div>
-      <div className="absolute top-8 right-8">
-        <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.3 }}>
-          <Plus className="w-8 h-8 text-[#4169E1]" />
-        </motion.div>
-      </div>
-
-      {/* Main Center Content */}
-      <motion.div 
-        style={{ y, opacity }}
-        className="flex-1 flex flex-col items-center justify-center relative z-10"
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="mb-12"
+      {/* Bottom Information Layer */}
+      <footer className="w-full relative z-10 flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/20 pb-6 mt-8 gap-6 md:gap-0">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="font-space font-bold text-sm tracking-wide uppercase text-white/90"
         >
-          {/* Gradient Asterisk */}
-          <div className="relative w-[150px] h-[150px] md:w-[200px] md:h-[200px] flex items-center justify-center">
-             <div className="absolute inset-0 bg-gradient-to-br from-white to-[#4169E1] blur-2xl opacity-20 rounded-full" />
-             <Asterisk className="w-32 h-32 md:w-48 md:h-48 text-[#4169E1] opacity-90 mix-blend-screen" />
-          </div>
         </motion.div>
-
-        <div className="text-center flex flex-col items-center justify-center space-y-1 md:space-y-2 px-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-space font-normal text-4xl md:text-6xl tracking-tight text-white lowercase"
-          >
-            convert visual
-          </motion.h2>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-space font-bold text-4xl md:text-6xl tracking-[tight] md:tracking-[-0.04em] text-white lowercase"
-          >
-            to revenue.
-          </motion.h2>
+        
+        {/* Pagination Dots */}
+        <div className="flex items-center gap-3">
+          {slides.map((_, index) => (
+            <button 
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className="group py-2 px-1 cursor-pointer"
+            >
+              <div 
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${
+                  currentSlide === index ? "bg-white scale-125 shadow-[0_0_15px_rgba(255,255,255,0.5)]" : "bg-white/30 group-hover:bg-white/60"
+                }`}
+              />
+            </button>
+          ))}
         </div>
-      </motion.div>
-
-      {/* Bottom Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-10"
-      >
-        <span className="text-gray-500 uppercase text-[10px] tracking-[0.2em] whitespace-nowrap">Discover more about us</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown className="w-5 h-5 text-[#4169E1]" />
-        </motion.div>
-      </motion.div>
-
-      {/* Right Side Navigation */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2 rotate-90 origin-right translate-x-1/2">
-        <span className="uppercase text-xs tracking-widest text-white/50 hover:text-white transition-colors cursor-pointer">Honors</span>
-        <span className="text-white/30 text-xs text-center flex items-center justify-center rotate-[-90deg]">↓</span>
-      </div>
+      </footer>
+      
+      {/* Background Subtle Gradient overlay to ensure depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
     </section>
   );
 }
