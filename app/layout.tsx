@@ -89,7 +89,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "EzeeAD",
-              "image": "https://ezeead.com/ezeead-logo-new.png",
+              "image": "https://ezeead.com/ezeead-logo.png",
               "url": "https://ezeead.com",
               "telephone": "",
               "address": {
