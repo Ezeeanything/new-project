@@ -30,10 +30,10 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="bg-[#0b0c10] min-h-screen pt-32 selection:bg-[#4169E1] selection:text-white flex flex-col overflow-hidden">
+    <main className="bg-[#0b0c10] min-h-screen px-6 md:px-12 lg:px-20 selection:bg-[#4169E1] selection:text-white flex flex-col overflow-hidden">
       
       {/* Header Section */}
-      <section className="px-6 md:px-12 max-w-[1400px] mx-auto w-full pt-12 pb-24 relative">
+      <section className="max-w-[1400px] mx-auto w-full pt-24 md:pt-48 pb-16 md:pb-32 relative">
         {/* Subtle Ezee Blue Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#4169E1]/30 blur-[120px] rounded-[100%] pointer-events-none z-0" />
         

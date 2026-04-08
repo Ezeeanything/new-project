@@ -14,7 +14,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="bg-[#0A0A0A] text-white py-32 px-4 md:px-8 w-full relative z-10">
+    <section id="services" className="bg-[#0A0A0A] text-white py-24 md:py-48 px-6 md:px-12 lg:px-20 w-full relative z-10">
       <div className="max-w-[1400px] mx-auto text-center">
          
         <motion.div 

@@ -134,7 +134,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* === PROJECT SHOWCASE SECTION (BEHANCE LINKS) === */}
-      <section id="all-projects" className="px-6 md:px-12 max-w-[1400px] mx-auto py-32 scroll-mt-24">
+      <section id="all-projects" className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto py-24 md:py-48 scroll-mt-24">
         <div className="flex justify-between items-end mb-20 border-b border-white/20 pb-8">
            <h2 className="font-space font-black text-4xl md:text-6xl text-white uppercase tracking-tighter">
              ALL <span className="text-[#4169E1]">PROJECTS.</span>

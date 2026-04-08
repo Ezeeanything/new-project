@@ -6,15 +6,15 @@ import Link from "next/link";
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#4169E1] text-white py-32 md:py-48 px-6 md:px-12 w-full relative overflow-hidden z-10">
+    <section className="bg-[#4169E1] text-white py-24 md:py-48 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center justify-center">
       
-      <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-start w-full">
+      <div className="max-w-[1400px] w-full mx-auto text-center relative z-10 flex flex-col items-center">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-space font-black text-[12vw] sm:text-[90px] md:text-[140px] leading-[0.85] tracking-[-0.04em] uppercase mb-16 text-left"
+          className="font-space font-black text-[12vw] sm:text-[90px] md:text-[140px] leading-[0.85] tracking-[-0.04em] uppercase mb-16"
         >
           <span className="block text-[#0A0A0A]">WANT TO DO</span>
           <span className="block text-white">POWERFUL</span>

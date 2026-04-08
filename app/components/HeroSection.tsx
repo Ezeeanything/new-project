@@ -42,7 +42,7 @@ export default function HeroSection() {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between p-6 md:p-12 overflow-hidden py-20 md:py-12">
+    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between px-6 md:px-12 lg:px-20 py-24 md:py-48 overflow-hidden">
       
       {/* Main Massive Typography Area */}
       <main className="flex-1 flex flex-col justify-center items-center w-full z-10 relative pt-12 md:pt-32 text-center">

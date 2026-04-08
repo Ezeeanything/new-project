@@ -25,8 +25,8 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section className="bg-[#0A0A0A] text-[#FAFAFA] py-32 px-4 md:px-8 w-full relative z-10 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="work" className="bg-[#0A0A0A] text-[#FAFAFA] py-24 md:py-48 px-6 md:px-12 lg:px-20 w-full relative z-10 min-h-screen flex flex-col justify-center border-t border-white/10">
+      <div className="max-w-[1400px] mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
