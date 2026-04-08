@@ -10,7 +10,7 @@ export default function AboutPage() {
     <main className="bg-[#0A0A0A] min-h-screen pt-32 pb-0 selection:bg-[#4169E1] selection:text-white">
       
       {/* Intro Section */}
-      <section id="all-projects" className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto py-12 md:py-32 scroll-mt-24 border-b border-white/10">
+      <section id="all-projects" className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24 border-b border-white/10">
         <h1 className="font-space font-black text-6xl md:text-[84px] leading-[0.95] tracking-tighter uppercase text-white mb-20 md:w-[90%]">
           WE ARE <span className="text-[#4169E1]">ARCHITECTS</span> OF VISUAL REVENUE.
         </h1>
@@ -60,7 +60,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto pt-12 md:pt-32 pb-16 md:pb-24">
+      <section className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { 

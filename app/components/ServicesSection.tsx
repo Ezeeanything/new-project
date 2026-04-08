@@ -14,14 +14,14 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="bg-[#0A0A0A] text-white py-12 md:py-32 px-6 md:px-12 lg:px-20 w-full relative z-10">
+    <section id="services" className="bg-[#0A0A0A] text-white py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] w-full relative z-10">
       <div className="max-w-[1400px] mx-auto text-center">
          
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-2 mb-8"
+          className="mb-16 md:mb-24 flex items-center justify-center gap-2"
         >
           <span className="uppercase text-[#DAA520] text-xs tracking-widest font-semibold">What We Do</span>
         </motion.div>

@@ -48,9 +48,9 @@ export default function PortfolioPage() {
     <main className="bg-[#0A0A0A] min-h-screen pt-32 selection:bg-[#4169E1] selection:text-white overflow-hidden">
       
       {/* === HERO SECTION: FLAT STAGGERED CAROUSEL === */}
-      <section className="px-0 relative w-full pt-8 pb-32 flex flex-col items-center border-b border-white/10">
+      <section className="relative w-full pt-8 pb-32 flex flex-col items-center border-b border-white/10">
         
-        <div className="px-6 md:px-12 max-w-[1400px] w-full mx-auto relative z-20 mb-8 text-center flex flex-col items-center">
+        <div className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] w-full mx-auto relative z-20 mb-8 text-center flex flex-col items-center">
           <h1 className="font-space font-black text-[clamp(40px,8vw,100px)] leading-[0.9] tracking-tighter uppercase text-white mb-6">
             THE ARCHIVE.
           </h1>
@@ -134,7 +134,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* === PROJECT SHOWCASE SECTION (BEHANCE LINKS) === */}
-      <section id="all-projects" className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto py-12 md:py-32 scroll-mt-24">
+      <section id="all-projects" className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24">
         <div className="flex justify-between items-end mb-20 border-b border-white/20 pb-8">
            <h2 className="font-space font-black text-4xl md:text-6xl text-white uppercase tracking-tighter">
              ALL <span className="text-[#4169E1]">PROJECTS.</span>

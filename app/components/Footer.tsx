@@ -21,7 +21,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0A0A0A] text-white pt-24 pb-8 px-4 md:px-8 w-full border-t border-white/10 z-10 relative">
+    <footer className="bg-[#0A0A0A] text-white py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] w-full border-t border-white/10 z-10 relative">
       <div className="max-w-[1400px] mx-auto">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-24">

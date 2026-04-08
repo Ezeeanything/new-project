@@ -45,7 +45,7 @@ export default function WelcomeSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-12 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
+    <section className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative overflow-hidden flex flex-col items-center">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
         
         {/* Massive Headline */}
@@ -54,7 +54,7 @@ export default function WelcomeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center w-full mb-8 md:mb-24 lg:mb-32"
+          className="text-center w-full mb-12 md:mb-16 lg:mb-20"
         >
           <h2 className="font-space font-black text-[12vw] md:text-[80px] lg:text-[110px] xl:text-[130px] leading-[0.8] tracking-[-0.04em] uppercase text-[#4169E1]">
             WHAT DESIGN<br />MEANS TO US
@@ -67,7 +67,7 @@ export default function WelcomeSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full aspect-square md:aspect-[21/9] relative bg-transparent flex items-center justify-center p-0 md:p-8 overflow-hidden"
+          className="w-full aspect-square md:aspect-[21/9] relative bg-transparent flex items-center justify-center p-0 overflow-hidden"
         >
           <AnimatePresence mode="wait">
             <motion.div

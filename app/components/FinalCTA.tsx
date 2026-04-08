@@ -6,14 +6,14 @@ import Link from "next/link";
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#4169E1] text-white py-12 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center justify-center">
+    <section className="bg-[#4169E1] text-white py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative overflow-hidden flex flex-col items-center justify-center">
       <div className="max-w-[1400px] w-full mx-auto text-center relative z-10 flex flex-col items-center">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-space font-black text-[12vw] sm:text-[90px] md:text-[140px] leading-[0.85] tracking-[-0.04em] uppercase mb-16"
+          className="font-space font-black text-[clamp(48px,12vw,140px)] leading-[0.85] tracking-[-0.04em] uppercase mb-12 md:mb-16"
         >
           <span className="block text-[#0A0A0A]">WANT TO DO</span>
           <span className="block text-white">POWERFUL</span>

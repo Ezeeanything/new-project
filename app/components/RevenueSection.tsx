@@ -51,11 +51,11 @@ const Counter = ({ value, duration = 2 }: { value: number; duration?: number }) 
 
 export default function RevenueSection() {
   return (
-    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-12 md:py-32 px-6 md:px-12 lg:px-20 w-full relative z-10">
+    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] w-full relative z-10">
       <div className="max-w-[1400px] mx-auto">
         
         <div className="flex items-center gap-2 mb-12">
-          <span className="uppercase text-xs tracking-widest font-semibold text-gray-500">What Revenue Means To Us</span>
+          <span className="uppercase text-[10px] tracking-[0.4em] font-bold text-[#4169E1]">WHAT REVENUE MEANS TO US</span>
         </div>
 
         <motion.h2 

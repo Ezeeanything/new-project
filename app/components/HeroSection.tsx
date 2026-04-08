@@ -42,7 +42,7 @@ export default function HeroSection() {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between px-6 md:px-12 lg:px-20 py-12 md:py-24 overflow-hidden">
+    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] overflow-hidden">
       
       {/* Main Massive Typography Area */}
       <main className="flex-1 flex flex-col justify-center items-center w-full z-10 relative pt-12 md:pt-32 text-center">
@@ -86,7 +86,7 @@ export default function HeroSection() {
       </main>
 
       {/* Bottom Information Layer */}
-      <footer className="w-full relative z-10 flex flex-col md:flex-row justify-center items-center border-b border-white/20 pb-6 mt-8 gap-6">
+      <footer className="w-full relative z-10 flex flex-col md:flex-row justify-center items-center border-b border-white/20 pb-8 mt-12 gap-8">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -96,12 +96,12 @@ export default function HeroSection() {
         </motion.div>
         
         {/* Pagination Dots - Centered */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {slides.map((_, index) => (
             <button 
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className="group py-2 px-1 cursor-pointer"
+              className="group py-2 px-2 cursor-pointer"
             >
               <div 
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${
