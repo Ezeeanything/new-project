@@ -37,11 +37,11 @@ export default function ServicesPage() {
         {/* Subtle Ezee Blue Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#4169E1]/30 blur-[120px] rounded-[100%] pointer-events-none z-0" />
         
-        <div className="relative z-10 w-full md:w-[90%] lg:w-[80%]">
-          <h1 className="font-space font-light text-[clamp(40px,7vw,110px)] leading-[1] tracking-tighter uppercase text-[#FAFAFA] mb-12 mix-blend-screen">
+        <div className="relative z-10 w-full mx-auto text-center flex flex-col items-center">
+          <h1 className="font-space font-light text-[clamp(40px,7vw,110px)] leading-[1] tracking-tighter uppercase text-[#FAFAFA] mb-12 mix-blend-screen max-w-[1200px]">
             WE ARE THE TEAM OF <span className="font-bold">VISUAL AND MULTIVERSE</span> ART DESIGNERS
           </h1>
-          <Link href="/contact" className="inline-flex items-center justify-center border border-white/40 rounded-full px-6 py-2 text-xs md:text-sm tracking-widest uppercase hover:bg-white hover:text-[#0b0c10] transition-colors">
+          <Link href="/contact" className="inline-flex items-center justify-center border border-white/40 rounded-full px-8 py-3 text-xs md:text-sm tracking-widest uppercase hover:bg-white hover:text-[#0b0c10] transition-colors">
             Get in touch <ArrowUpRight className="ml-2 w-4 h-4" />
           </Link>
         </div>

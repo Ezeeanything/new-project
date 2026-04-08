@@ -28,8 +28,8 @@ export default function Footer() {
           
           {/* Column 1: Brand */}
           <div className="flex flex-col">
-            <div className="mb-6 relative w-[160px] h-[50px]">
-              <Image src="/ezeead-logo.png" alt="EzeeAD" fill className="object-contain object-left" />
+            <div className="mb-6 relative w-[180px] h-[55px]">
+              <Image src="/ezeead-logo-new.png" alt="EzeeAD Logo" fill className="object-contain object-left" />
             </div>
             <p className="font-space italic text-gray-500 mb-8 font-light">
               Where Visuals Meet Revenue
