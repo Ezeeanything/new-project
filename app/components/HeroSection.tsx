@@ -42,10 +42,10 @@ export default function HeroSection() {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] overflow-hidden">
+    <section className="relative min-h-[100svh] w-full bg-[#4169E1] text-[#FAFAFA] flex flex-col justify-between py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] overflow-hidden">
       
       {/* Main Massive Typography Area */}
-      <main className="flex-1 flex flex-col justify-center items-center w-full z-10 relative pt-12 md:pt-32 text-center">
+      <main className="flex-1 flex flex-col justify-center items-center w-full z-10 relative pt-12 md:pt-24 text-center">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} className="w-full flex flex-col justify-center items-center">
             

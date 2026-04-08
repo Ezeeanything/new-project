@@ -15,12 +15,8 @@ export default function ClientMarquee() {
   ];
 
   return (
-    <section className="bg-[#FAFAFA] text-[#0A0A0A] w-full flex flex-col md:flex-row border-y border-gray-200 min-h-[120px]">
-      <div className="px-6 py-6 md:p-12 md:w-[300px] border-b md:border-b-0 md:border-r border-gray-200 flex items-center shrink-0">
-        <h3 className="font-space font-bold uppercase text-xs md:text-sm tracking-widest text-gray-500">Trusted By...</h3>
-      </div>
-      
-      <div className="flex-1 overflow-hidden flex items-center py-6 md:py-0 w-full relative">
+    <section className="bg-[#FAFAFA] text-[#0A0A0A] w-full flex items-center border-y border-gray-200 min-h-[80px] md:min-h-[100px] py-4 md:py-6">
+      <div className="flex-1 overflow-hidden flex items-center w-full relative">
         {/* Gradients for smooth fade in/out on scroll edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10" />

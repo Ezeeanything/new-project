@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#4169E1] text-white py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative overflow-hidden flex flex-col items-center justify-center">
+    <section className="bg-[#4169E1] text-white py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] relative overflow-hidden flex flex-col items-center justify-center">
       <div className="max-w-[1400px] w-full mx-auto text-center relative z-10 flex flex-col items-center">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}

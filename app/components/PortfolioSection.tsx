@@ -25,14 +25,14 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section id="work" className="bg-[#0A0A0A] text-[#FAFAFA] py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] w-full relative z-10 min-h-screen flex flex-col justify-center border-t border-white/10">
+    <section id="work" className="bg-[#0A0A0A] text-[#FAFAFA] py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] w-full relative z-10 min-h-screen flex flex-col justify-center border-t border-white/10">
       <div className="max-w-[1400px] mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex justify-between items-end mb-16"
+          className="flex justify-between items-end mb-12"
         >
           <h2 className="font-space font-black text-4xl md:text-[84px] leading-[0.9] tracking-tighter uppercase text-white">
             OUR WORK.

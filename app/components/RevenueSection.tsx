@@ -51,19 +51,15 @@ const Counter = ({ value, duration = 2 }: { value: number; duration?: number }) 
 
 export default function RevenueSection() {
   return (
-    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] w-full relative z-10">
+    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] w-full relative z-10">
       <div className="max-w-[1400px] mx-auto">
         
-        <div className="flex items-center gap-2 mb-12">
-          <span className="uppercase text-[10px] tracking-[0.4em] font-bold text-[#4169E1]">WHAT REVENUE MEANS TO US</span>
-        </div>
-
         <motion.h2 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-space font-black text-6xl md:text-[84px] leading-[1.1] tracking-[-0.02em] mb-20 max-w-[800px]"
+          className="font-space font-black text-6xl md:text-[84px] leading-[1.1] tracking-[-0.02em] mb-12 max-w-[800px]"
         >
           What Revenue<br />Means To Us
         </motion.h2>

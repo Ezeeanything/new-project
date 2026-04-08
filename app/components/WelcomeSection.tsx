@@ -1,51 +1,53 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function WelcomeSection() {
-  const [loopCount, setLoopCount] = useState(0);
-
   const pills = [
     { 
       text: "Design is", 
-      bg: "bg-[#3374F5]", 
+      bg: "bg-[#4169E1]", 
       textCol: "text-white", 
-      rotate: "-rotate-[12deg] md:-rotate-[20deg]",
-      pos: "top-[8%] md:top-[5%] left-[5%] md:left-[10%] z-10"
+      rotate: 5,
+      offset: "translate-x-[15%] md:translate-x-[35%]",
+      padding: "px-10 py-5 md:px-[40px] md:py-[20px]",
+      delay: 0,
+      zIndex: 40 // Top
     },
     { 
       text: "not decoration", 
       bg: "bg-[#0A0A0A]", 
       textCol: "text-white", 
-      rotate: "rotate-[4deg] md:rotate-[6deg]",
-      pos: "top-[32%] md:top-[30%] right-[5%] md:right-[5%] z-20"
+      rotate: -3,
+      offset: "-translate-x-[10%] md:-translate-x-[28%]",
+      padding: "px-12 py-6 md:px-[50px] md:py-[24px]",
+      delay: 0.3,
+      zIndex: 30
     },
     { 
       text: "it's direction", 
-      bg: "bg-[#D6FF79]", 
-      textCol: "text-[#0A0A0A]", 
-      rotate: "-rotate-[2deg] md:-rotate-[2deg]",
-      pos: "top-[58%] md:top-[55%] left-[0%] md:left-[5%] z-30"
+      bg: "bg-[#90EE90]", 
+      textCol: "text-black", 
+      rotate: 4,
+      offset: "translate-x-[5%] md:translate-x-[15%]",
+      padding: "px-11 py-5 md:px-[45px] md:py-[20px]",
+      delay: 0.6,
+      zIndex: 20
     },
     { 
-      text: "With purpose", 
-      bg: "bg-[#FF7324]", 
-      textCol: "text-[#0A0A0A]", 
-      rotate: "-rotate-[8deg] md:-rotate-[12deg]",
-      pos: "top-[84%] md:top-[80%] right-[0%] md:right-[15%] z-40"
+      text: "with purpose", 
+      bg: "bg-[#FF8C42]", 
+      textCol: "text-black", 
+      rotate: -5,
+      offset: "-translate-x-[5%] md:-translate-x-[10%]",
+      padding: "px-12 py-6 md:px-[48px] md:py-[22px]",
+      delay: 0.9,
+      zIndex: 10 // Bottom
     }
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setLoopCount((prev) => prev + 1);
-    }, 6000); // 6 seconds loop: enough time to drop, hold, and fall
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative overflow-hidden flex flex-col items-center">
+    <section className="w-full bg-[#FAFAFA] text-[#0A0A0A] py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] relative flex flex-col items-center">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
         
         {/* Massive Headline */}
@@ -54,75 +56,53 @@ export default function WelcomeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center w-full mb-12 md:mb-16 lg:mb-20"
+          className="text-center w-full mb-10 md:mb-16"
         >
-          <h2 className="font-space font-black text-[12vw] md:text-[80px] lg:text-[110px] xl:text-[130px] leading-[0.8] tracking-[-0.04em] uppercase text-[#4169E1]">
+          <h2 className="font-space font-black text-[10vw] md:text-[80px] lg:text-[110px] xl:text-[130px] leading-[0.8] tracking-[-0.04em] uppercase text-[#4169E1]">
             WHAT DESIGN<br />MEANS TO US
           </h2>
         </motion.div>
 
-        {/* Transparent Constraint Container */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full aspect-square md:aspect-[21/9] relative bg-transparent flex items-center justify-center p-0 overflow-hidden"
-        >
-          <AnimatePresence mode="wait">
+        {/* Falling Bricks Pills Area - Natural Flow (De-clustered) */}
+        <div className="w-full relative flex flex-col items-center gap-0 mt-8 md:mt-16">
+          {pills.map((pill, i) => (
             <motion.div
-              key={loopCount}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: { staggerChildren: 0.3 }
-                },
-                exit: {
-                  transition: { staggerChildren: 0.1, staggerDirection: -1 }
-                }
+              key={i}
+              initial={{ y: -500, opacity: 0, rotate: 0 }}
+              whileInView={{ 
+                y: 0, 
+                opacity: 1, 
+                rotate: pill.rotate 
               }}
-              className="relative w-full max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] h-full"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                ease: [0.68, -0.55, 0.265, 1.55],
+                duration: 0.8,
+                delay: pill.delay
+              }}
+              className={`relative ${pill.bg} ${pill.textCol} ${pill.padding} ${pill.offset} rounded-[50px] shadow-2xl flex items-center justify-center -mt-3 md:-mt-6 first:mt-0 z-[1]`}
+              style={{ zIndex: pill.zIndex }}
             >
-              {pills.map((pill, i) => (
-                <motion.div
-                  key={i}
-                  variants={{
-                    hidden: { y: -600, opacity: 0, scale: 0.9 },
-                    visible: { 
-                      y: 0, 
-                      opacity: 1, 
-                      scale: 1,
-                      transition: { 
-                        type: "spring", 
-                        bounce: 0.35, 
-                        duration: 1.2 
-                      } 
-                    },
-                    exit: { 
-                      y: 600, 
-                      opacity: 0, 
-                      transition: { 
-                        ease: "easeIn", 
-                        duration: 0.6 
-                      } 
-                    }
-                  }}
-                  className={`absolute ${pill.pos} ${pill.rotate} ${pill.bg} ${pill.textCol} px-6 py-3 md:px-16 md:py-8 lg:px-20 lg:py-10 rounded-full flex items-center justify-center transition-transform will-change-transform shadow-2xl md:shadow-none`}
-                >
-                  <span className="font-inter font-bold text-xl md:text-5xl lg:text-7xl xl:text-[80px] tracking-tight whitespace-nowrap leading-none pb-1 md:pb-2 lg:pb-3">
-                    {pill.text}
-                  </span>
-                </motion.div>
-              ))}
+              {/* Landing "Shake/Wobble" Nested Animation */}
+              <motion.div
+                initial={{ rotate: 0 }}
+                whileInView={{ rotate: [0, -2, 2, 0] }}
+                viewport={{ once: true }}
+                transition={{ 
+                  delay: pill.delay + 0.7,
+                  duration: 0.4,
+                  ease: "easeInOut"
+                }}
+                className="flex items-center justify-center"
+              >
+                <span className="font-space font-bold text-xl md:text-5xl lg:text-7xl xl:text-[80px] tracking-tight whitespace-nowrap leading-none uppercase">
+                  {pill.text}
+                </span>
+              </motion.div>
             </motion.div>
-          </AnimatePresence>
-        </motion.div>
+          ))}
+        </div>
 
-
-        
       </div>
     </section>
   );
