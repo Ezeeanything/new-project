@@ -25,7 +25,7 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section id="work" className="bg-[#0A0A0A] text-[#FAFAFA] py-24 md:py-48 px-6 md:px-12 lg:px-20 w-full relative z-10 min-h-screen flex flex-col justify-center border-t border-white/10">
+    <section id="work" className="bg-[#0A0A0A] text-[#FAFAFA] py-12 md:py-32 px-6 md:px-12 lg:px-20 w-full relative z-10 border-t border-white/10">
       <div className="max-w-[1400px] mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

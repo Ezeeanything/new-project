@@ -33,7 +33,7 @@ export default function ServicesPage() {
     <main className="bg-[#0b0c10] min-h-screen px-6 md:px-12 lg:px-20 selection:bg-[#4169E1] selection:text-white flex flex-col overflow-hidden">
       
       {/* Header Section */}
-      <section className="max-w-[1400px] mx-auto w-full pt-24 md:pt-48 pb-16 md:pb-32 relative">
+      <section className="max-w-[1400px] mx-auto w-full pt-12 md:pt-32 pb-12 md:pb-24 relative">
         {/* Subtle Ezee Blue Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#4169E1]/30 blur-[120px] rounded-[100%] pointer-events-none z-0" />
         
@@ -100,7 +100,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Feature Block with Extracted Real Portfolio Images */}
-      <section className="px-6 md:px-12 max-w-[1400px] mx-auto w-full py-24">
+      <section id="all-projects" className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto py-12 md:py-32 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-8 w-full aspect-video md:aspect-[21/9] bg-[#111111] relative overflow-hidden group">
             <Image 

@@ -51,7 +51,7 @@ const Counter = ({ value, duration = 2 }: { value: number; duration?: number }) 
 
 export default function RevenueSection() {
   return (
-    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-24 md:py-48 px-6 md:px-12 lg:px-20 w-full relative z-10">
+    <section id="revenue" className="bg-[#FAFAFA] text-[#0A0A0A] py-12 md:py-32 px-6 md:px-12 lg:px-20 w-full relative z-10">
       <div className="max-w-[1400px] mx-auto">
         
         <div className="flex items-center gap-2 mb-12">
