@@ -24,7 +24,7 @@ export default function ServicesPage() {
       desc: "Guiding the creative vision for campaigns, shoots, and long-term brand visual strategies to ensure a cohesive and premium output.",
     },
     {
-      title: "MERCHANDISE",
+      title: "MERCH",
       desc: "Physical brand manifestations. High-end apparel and merchandise design that turns your audience into walking billboards.",
     }
   ];

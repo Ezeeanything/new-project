@@ -21,7 +21,7 @@ export default function HeroSection() {
       lines: [
         { text: "YOUR", color: "text-[#FAFAFA]" },
         { text: "BRAND", color: "text-[#FAFAFA]" },
-        { text: "TRANSFORMED.", color: "text-[#0A0A0A]" },
+        { text: "EVOLVED.", color: "text-[#0A0A0A]" },
       ]
     },
     {

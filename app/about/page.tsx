@@ -16,6 +16,25 @@ export default function AboutPage() {
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          
+          {/* Sunday's Portrait - Moved to top on mobile */}
+          <div className="lg:col-span-5 relative order-first mb-16 lg:mb-0">
+            <div className="relative aspect-[4/5] w-full bg-zinc-900 overflow-hidden grayscale contrast-125">
+              <Image 
+                src="/sunday-odafe.png" 
+                alt="Sunday Odafe - Founder of EzeeAD" 
+                fill 
+                className="object-cover object-center scale-105" 
+                priority
+              />
+            </div>
+            {/* Subtle floating badge or tagline */}
+            <div className="absolute -bottom-6 -left-6 bg-[#4169E1] text-white p-8 md:p-10 hidden md:block z-20">
+              <span className="font-space font-black text-2xl uppercase tracking-tighter block leading-none">SUNDAY<br />ODAFE</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-bold mt-2 block opacity-70">FOUNDER & LEAD DESIGNER</span>
+            </div>
+          </div>
+
           {/* Sunday's Story */}
           <div className="lg:col-span-7 flex flex-col gap-10">
             <div className="flex items-center gap-2">
@@ -37,23 +56,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Sunday's Portrait */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] w-full bg-zinc-900 overflow-hidden grayscale contrast-125">
-              <Image 
-                src="/sunday-odafe.png" 
-                alt="Sunday Odafe - Founder of EzeeAD" 
-                fill 
-                className="object-cover object-center scale-105" 
-                priority
-              />
-            </div>
-            {/* Subtle floating badge or tagline */}
-            <div className="absolute -bottom-6 -left-6 bg-[#4169E1] text-white p-8 md:p-10 hidden md:block">
-              <span className="font-space font-black text-2xl uppercase tracking-tighter block leading-none">SUNDAY<br />ODAFE</span>
-              <span className="text-[10px] uppercase tracking-[0.4em] font-bold mt-2 block opacity-70">FOUNDER & LEAD DESIGNER</span>
-            </div>
-          </div>
         </div>
       </section>
 
