@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <main className="bg-[#0A0A0A] min-h-screen pt-32 selection:bg-[#4169E1] selection:text-white flex flex-col">
       
-      <section className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto w-full flex-1">
+      <section className="py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto w-full flex-1">
         <h1 className="font-space font-black text-[clamp(50px,10vw,140px)] leading-[0.9] tracking-tighter uppercase text-white mb-20 text-center md:text-left">
           LET'S TALK <br /><span className="text-[#4169E1]">BUSINESS.</span>
         </h1>

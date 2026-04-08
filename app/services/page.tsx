@@ -32,8 +32,8 @@ export default function ServicesPage() {
   return (
     <main className="bg-[#0b0c10] min-h-screen px-6 md:px-12 lg:px-20 selection:bg-[#4169E1] selection:text-white flex flex-col overflow-hidden">
       
-      {/* Header Section */}
-      <section className="max-w-[1400px] mx-auto w-full py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative">
+      {/* Header Section - Enhanced Top Clearance for Mobile */}
+      <section className="max-w-[1400px] mx-auto w-full pt-32 md:pt-[clamp(56px,8vw,112px)] pb-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] relative">
         {/* Subtle Ezee Blue Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#4169E1]/30 blur-[120px] rounded-[100%] pointer-events-none z-0" />
         
@@ -61,7 +61,7 @@ export default function ServicesPage() {
                 
                 {/* Giant Numbering */}
                 <div className="w-[45%] md:w-[50%] flex-shrink-0">
-                   <h2 className={`font-space text-[120px] md:text-[240px] leading-[0.7] tracking-tighter transition-all duration-500 ease-in-out ${isOpen ? "text-white opacity-100" : "text-transparent bg-clip-text bg-white opacity-90 stroke-white"}`} style={isOpen ? {} : { WebkitTextStroke: "2px rgba(255,255,255,0.9)", color: "transparent" }}>
+                   <h2 className={`font-space text-[120px] md:text-[240px] leading-[0.7] tracking-tighter transition-all duration-500 ease-in-out ${isOpen ? "text-white opacity-100" : "text-transparent bg-clip-text bg-white opacity-90 stroke-white"}`} style={isOpen ? { lineHeight: "0.7", letterSpacing: "-0.05em" } : { WebkitTextStroke: "2px rgba(255,255,255,0.9)", color: "transparent", lineHeight: "0.7", letterSpacing: "-0.05em" }}>
                      0{idx + 1}
                    </h2>
                 </div>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Feature Block with Extracted Real Portfolio Images */}
-      <section id="all-projects" className="py-[clamp(56px,8vw,112px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24">
+      <section id="all-projects" className="py-[clamp(56px,8vw,96px)] px-[clamp(24px,6vw,80px)] max-w-[1400px] mx-auto scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-8 w-full aspect-video md:aspect-[21/9] bg-[#111111] relative overflow-hidden group">
             <Image 
@@ -121,8 +121,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Extreme CTA */}
-      <section className="w-full flex justify-center items-center py-32 relative">
+      {/* Extreme CTA - Optimized for Mobile */}
+      <section className="w-full flex justify-center items-center py-[clamp(40px,8vw,80px)] relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-[#4169E1]/20 blur-[100px] rounded-[100%] pointer-events-none z-0" />
         
         <Link href="/contact" className="relative group cursor-pointer z-10 flex flex-col items-center">
