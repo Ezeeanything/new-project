@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -129,6 +130,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <FloatingWhatsApp />
+        <Analytics />
       </body>
     </html>
   );
