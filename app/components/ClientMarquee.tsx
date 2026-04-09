@@ -23,7 +23,7 @@ export default function ClientMarquee() {
         
         <motion.div
           animate={{ x: [0, "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           className="flex items-center gap-16 whitespace-nowrap pl-8 w-max"
         >
           {/* Loop Array multiple times to ensure continuous seamless scroll */}
