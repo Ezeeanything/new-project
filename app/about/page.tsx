@@ -24,6 +24,7 @@ export default function AboutPage() {
                 src="/sunday-odafe.png" 
                 alt="Sunday Odafe - Founder of EzeeAD" 
                 fill 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 600px"
                 className="object-cover object-center scale-105" 
                 priority
               />
