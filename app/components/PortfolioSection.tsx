@@ -59,7 +59,6 @@ export default function PortfolioSection() {
                   src={project.image}
                   alt={project.name}
                   fill
-                  sizes="(max-width: 768px) 95vw, (max-width: 1200px) 50vw, 800px"
                   className="object-cover object-center grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
               </div>

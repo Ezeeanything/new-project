@@ -107,7 +107,6 @@ export default function ServicesPage() {
               src="/team_collaborating.png" 
               alt="EzeeAD Creative Team" 
               fill 
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 1000px"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-1000" 
             />
             <div className="absolute inset-0 bg-[#4169E1]/10 mix-blend-overlay"></div>

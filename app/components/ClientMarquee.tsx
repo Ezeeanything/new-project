@@ -34,7 +34,6 @@ export default function ClientMarquee() {
                    src={client.logo} 
                    alt={`${client.name} Logo`} 
                    fill 
-                   sizes="(max-width: 768px) 120px, 200px"
                    className="object-contain filter brightness-0" 
                  />
                </div>
