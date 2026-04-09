@@ -5,6 +5,7 @@ import Script from "next/script";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -154,6 +155,7 @@ export default function RootLayout({
         {children}
         <FloatingWhatsApp />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
