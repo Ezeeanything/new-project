@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { useForm, ValidationError } from '@formspree/react';
+import Link from "next/link";
 
 const InstagramIcon = (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>;
 const LinkedinIcon = (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
@@ -50,9 +51,9 @@ export default function Footer() {
           <div className="flex flex-col">
             <h4 className="font-space font-bold text-lg mb-6 uppercase tracking-wider text-gray-400">Navigation</h4>
             <ul className="space-y-4 font-inter text-gray-300">
-              <li><a href="#" className="hover:text-[#4169E1] transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-[#4169E1] transition-colors">Work</a></li>
-              <li><a href="#" className="hover:text-[#4169E1] transition-colors">Contact Us</a></li>
+              <li><Link href="/about" className="hover:text-[#4169E1] transition-colors">About Us</Link></li>
+              <li><Link href="/portfolio" className="hover:text-[#4169E1] transition-colors">Work</Link></li>
+              <li><Link href="/contact" className="hover:text-[#4169E1] transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -117,9 +118,9 @@ export default function Footer() {
           <div>© 2026 EzeeAD. All rights reserved.</div>
           <div className="hidden md:block">Crafted with excellence in Lagos, Nigeria</div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
 
