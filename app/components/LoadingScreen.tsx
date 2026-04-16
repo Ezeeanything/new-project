@@ -22,7 +22,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeInOut" } as const}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0A0A0A] text-white"
         >
           <motion.div 

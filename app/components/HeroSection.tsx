@@ -15,12 +15,12 @@ export default function HeroSection() {
         delayChildren: 0.3,
       },
     },
-  };
+  } as const;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
+  } as const;
 
   return (
     <section className="relative min-h-[100svh] w-full bg-[#0A0A0A] flex flex-col justify-center items-center py-20 px-[clamp(24px,6vw,80px)] overflow-hidden">

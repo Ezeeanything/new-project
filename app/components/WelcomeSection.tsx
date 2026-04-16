@@ -91,7 +91,7 @@ export default function WelcomeSection() {
                 transition={{ 
                   delay: pill.delay + 0.7,
                   duration: 0.4,
-                  ease: "easeInOut"
+                  ease: "easeInOut" as const
                 }}
                 className="flex items-center justify-center"
               >
