@@ -14,10 +14,10 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
 
   const links = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
+    { name: "Our Story", path: "/about" },
+    { name: "What We Do", path: "/services" },
     { name: "Portfolio", path: "/portfolio" },
-    { name: "Contact", path: "/contact" },
+    { name: "Work with us", path: "/contact" },
   ];
 
   return (

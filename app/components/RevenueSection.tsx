@@ -59,7 +59,7 @@ export default function RevenueSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-space font-black text-6xl md:text-[84px] leading-[1.1] tracking-[-0.02em] mb-12 max-w-[800px]"
+          className="font-space font-black text-6xl md:text-[84px] leading-[1.1] tracking-[-0.02em] mb-12 max-w-[800px] text-center mx-auto"
         >
           What Revenue<br />Means To Us
         </motion.h2>

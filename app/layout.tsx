@@ -4,6 +4,8 @@ import "./globals.css";
 import Script from "next/script";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import ExitIntentPopup from "./components/ExitIntentPopup";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -152,10 +154,26 @@ export default function RootLayout({
           />
         </noscript>
         <Navbar />
+        <ScrollProgressBar />
+        <ExitIntentPopup />
         {children}
         <FloatingWhatsApp />
         <Analytics />
         <SpeedInsights />
+        {/* Tawk.to Integration */}
+        <Script id="tawk-to" strategy="afterInteractive">
+          {`
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/678a87b83a84273260706f9d/1iipu7t93';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

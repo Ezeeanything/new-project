@@ -8,3 +8,47 @@
   --font-space: var(--font-space-grotesk);
   --font-inter: var(--font-inter);
 }
+
+@layer utilities {
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95;
+  }
+  
+  .hover-lift-lg {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl active:scale-95;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(65, 105, 225, 0.3);
+  }
+
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4169E1;
+}
+
