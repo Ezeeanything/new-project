@@ -1,11 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import AnimatedCounter from "./AnimatedCounter";
+import { useState, useEffect } from "react";
 
 export default function HeroSection() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const words = ["Drive Revenue.", "Build Identity.", "Gain Visibility.", "Strategic Growth."];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,7 +33,7 @@ export default function HeroSection() {
   } as const;
 
   return (
-    <section className="relative min-h-[100svh] w-full bg-[#0A0A0A] flex flex-col justify-center items-center py-20 px-[clamp(24px,6vw,80px)] overflow-hidden">
+    <section className="relative min-h-[100svh] w-full bg-[#0A0A0A] flex flex-col justify-center items-center pt-40 pb-24 px-[clamp(24px,6vw,80px)] overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-[#4169E1]/10 blur-[120px] rounded-full" />
@@ -42,7 +52,20 @@ export default function HeroSection() {
           className="font-space font-black text-white text-[clamp(48px,8vw,72px)] leading-[1.1] tracking-tight max-w-[900px]"
         >
           Transform Your Brand. <br />
-          <span className="text-[#4169E1]">Drive Revenue.</span>
+          <div className="relative h-[1.2em] flex justify-center items-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={words[wordIndex]}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="text-[#4169E1] absolute"
+              >
+                {words[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
         </motion.h1>
 
         {/* SUBHEADLINE */}
@@ -50,33 +73,8 @@ export default function HeroSection() {
           variants={itemVariants}
           className="font-inter text-[#CCCCCC] text-[clamp(18px,2vw,24px)] font-light max-w-[800px] leading-relaxed"
         >
-          Premium design agency helping Nigerian businesses increase online presence by <span className="text-white font-medium">300%+</span> through strategic brand identity, UI/UX, and web development.
+          Design Agency helping Small to medium brands gain visibility through strategic brand position.
         </motion.p>
-
-        {/* VALUE PROPOSITIONS */}
-        <motion.div 
-          variants={itemVariants}
-          className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white/80"
-        >
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#4169E1]" />
-            <span className="font-space font-bold text-lg">
-              <AnimatedCounter value={47} suffix="+" /> Projects Delivered
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#4169E1]" />
-            <span className="font-space font-bold text-lg">
-              <AnimatedCounter value={100} suffix="%" /> Client Satisfaction
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#4169E1]" />
-            <span className="font-space font-bold text-lg">
-              Average <AnimatedCounter value={300} suffix="%" /> ROI
-            </span>
-          </div>
-        </motion.div>
 
         {/* CTAs */}
         <motion.div 
@@ -101,7 +99,7 @@ export default function HeroSection() {
 
       </motion.div>
 
-      {/* Scroll Progress Indicator (Optional but nice) */}
+      {/* Scroll Progress Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
